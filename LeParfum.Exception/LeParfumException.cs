@@ -4,13 +4,9 @@ namespace LeParfum.Exception
 {
     public abstract class LeParfumException : SystemException
     {
-        public abstract GetErrorMessages()
-        {
-            return List<String>;
-        }
-        public abstract GetStatusCode()
-        {
-            return HttpStatusCode;
-        }
+        public abstract string GetErrorMessage();
+
+        public abstract HttpStatusCode GetStatusCode();           
+        
     }
 }
