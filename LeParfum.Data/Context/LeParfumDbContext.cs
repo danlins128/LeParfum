@@ -6,7 +6,7 @@ namespace LeParfum.Data.Context
 {
     public class LeParfumDbContext : DbContext
     {
-        public LeParfumDbContext(DbContextOptions<LeParfumDbContext> options) :base(options) {}
+        public LeParfumDbContext(DbContextOptions<LeParfumDbContext> options) : base(options) {}
 
         public DbSet<BrandEntity> Brands { get; set; }
         public DbSet<GenderEntity> Genders { get; set; }
@@ -17,19 +17,16 @@ namespace LeParfum.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new BrandEntityMapping());
-            
             modelBuilder.ApplyConfiguration(new GenderEntityMapping());
-            
             modelBuilder.ApplyConfiguration(new ProductEntityMapping());
-            
             modelBuilder.ApplyConfiguration(new StockEntityMapping());
-            
             modelBuilder.ApplyConfiguration(new UserEntityMapping());
-
             base.OnModelCreating(modelBuilder);
+        }
 
-            
-
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=~/Documents/Projetos/ASP.NET/LeParfum/LeParfum.db");
         }
     }
 }
