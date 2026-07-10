@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="/src/css/output.css">
+<div id="modalNewProduct" class="fixed inset-0 bg-black/75 hidden  justify-center items-center z-200">
+    <div class="bg-[#F8F6F3] p-6 rounded-lg shadow-xl max-w-3xl w-full max-h-[720px] md:max-h-[680px]">
+        <h1 class="text-3xl text-shadow-sm text-[#2C241E] pb-6">Novo Produto</h1>
+        <form action="" id="newProductForm" class="text-shadow-sm">
+
+            <div id="layout-grid" class="grid grid-cols-2 items-start">
+
+                <div id="Foto-Produto-1" class="flex flex-col justify-between">
+                    <div class="bg-white rounded-lg h-60 w-80 mb-4 object-cover flex justify-center items-center">[Foto
+                        do Item]</div>
+
+                    <div class="flex flex-col justify-between ">
+                        <label for="">Preço R$ </label>
+                        <input type="number" name="preco" id="price" step="00.01" min="0" placeholder="00.00" required
+                            class="border border-[#8c6b4a]/50 rounded-md focus:outline-none py-2 px-4 w-80 shadow-md">
+                    </div>
+                </div>
+
+                <div id="lado-direito" class="space-y-4">
+                    <div class=" flex flex-col">
+                        <label for="" class="text-xl">Nome do Produto</label>
+                        <input type="text" name="nome-do-produto" id="productName"
+                            placeholder="Digite o nome do produto" required
+                            class="border border-[#8c6b4a]/50 rounded-md transition-colors focus:outline-none focus:ring-1 focus:ring-[#5B4031] focus:border-[#5B4031]/50 py-2 px-4 shadow-md">
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex flex-col">
+                            <label for="" class="text-xl">Marca</label>
+                            <select name="marca" id="select-brand"
+                                class="border border-[#8c6b4a]/50 rounded-md focus:outline-none py-2 px-4 w-64 shadow-md">
+                                <option value="" selected>Escolha uma Marca</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col">
+                            <label for="" class="text-xl">Categoria</label>
+                            <select name="categoria" id="select-category"
+                                class="border border-[#8c6b4a]/50 rounded-md focus:outline-none py-2 px-4 w-64 shadow-md">
+                                <option value="" selected>Escolha uma Categoria</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="" class="text-xl">Gênero</label>
+                        <select name="genero" id="select-gender"
+                            class="border border-[#8c6b4a]/50 rounded-md focus:outline-none py-2 px-4 w-64 shadow-md">
+                            <option value="" selected>Escolha um Gênero</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="flex flex-col
+            gap-1 mt-4">
+                <label for="">Descrição</label>
+                <textarea
+                    class="border border-[#8c6b4a] rounded-md p-2 w-full resize-y shadow-lg focus:outline-none focus:ring-1 focus:ring-[#5B4031] focus:border-[#5B4031]/50"
+                    rows="4" name="descricao" id="description"
+                    placeholder="Descreva as notas, suas características e diferenciais..."></textarea>
+            </div>
+            <div class="flex space-x-8 justify-end items-end p-8">
+                <button id="btnCloseModal"
+                    class="bg-white rounded-lg px-4 py-2 shadow-lg border border-amber-600/30 active:scale-85 transition-all "
+                    type="button">Cancelar</button>
+                <button
+                    class="bg-[#8c6b4a] rounded-lg px-4 py-2 text-white shadow-lg border border-stone-200 active:scale-85 transition-all "
+                    type="submit">Salvar Produto</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script type="module" src="/src/js/dashboard.js"></script>
