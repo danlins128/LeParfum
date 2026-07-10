@@ -12,7 +12,7 @@ export async function createProduct(productData) {
 
     if (!response.ok) {
 
-        throw new Error(errorText || "Erro ao criar produto no servidor");
+        throw new Error(text || "Erro ao criar produto no servidor");
     }
 
 
@@ -39,6 +39,15 @@ export async function getAllProducts() {
     }
 }
 
+//HTTP GET BY ID
+export async function getProductById(id) {
+    const response = await fetch(`http://localhost:5276/api/Product/${id}`,);
+
+    if (response.ok) return await response.json();
+
+    else throw new Error("Erro ao buscar o produto na API");
+}
+
 // HTTP DELETE
 export async function deleteProduct(id){
     const response = await fetch(`http://localhost:5276/api/Product/${id}`, {
@@ -50,4 +59,33 @@ export async function deleteProduct(id){
         throw new Error(errorText || "Produto não encontrado.");
     }
     return true;
+}
+
+// HTTP PUT
+export async function updateProduct(id, productData) {
+    const response = await fetch(`http://localhost:5276/api/Product/${id}`,{
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(productData)
+    });
+
+    const text = await response.text()
+
+    if (!response.ok) {
+
+        throw new Error(text || "Erro ao criar produto no servidor");
+    }
+
+
+    if (!text || text.trim() === "") {
+        return { success: true };
+    }
+
+    try {
+        return JSON.parse(text);
+    } catch (e) {
+        return { success: true, message: text };
+    }
 }

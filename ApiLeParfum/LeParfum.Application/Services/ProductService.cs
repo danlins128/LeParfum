@@ -32,7 +32,8 @@ namespace LeParfum.Application.Services
                 CategoryId = dto.CategoryId,
                 Description = dto.Description,
                 Price = dto.Price,
-                GenderId = dto.GenderId
+                GenderId = dto.GenderId,
+                IsHighlighted = dto.IsHighLighted
             };
 
             var createdProduct = await _productRepository.CreateProductAsync(productEntity);
@@ -45,7 +46,8 @@ namespace LeParfum.Application.Services
                 CategoryId = createdProduct.CategoryId,
                 Description = createdProduct.Description,
                 Price = createdProduct.Price,
-                GenderId = createdProduct.GenderId
+                GenderId = createdProduct.GenderId,
+                IsHighLighted = createdProduct.IsHighlighted
             };             
         }
 
@@ -69,9 +71,41 @@ namespace LeParfum.Application.Services
             return await _productRepository.GetProductByIdAsync(productId);
         }
 
-        public async Task<ProductEntity> UpdateProductAsync(ProductEntity product)
+        public async Task<ProductDto> UpdateProductAsync(CreateProductDto dto)
         {
-            return await _productRepository.UpdateProductAsync(product);
+            var productList = await _productRepository.GetAllProductsAsync();
+            var productExists =  productList.Any(p => p.Name.Equals(dto.Name, StringComparison.OrdinalIgnoreCase));
+            
+            if (productExists)
+            {
+                throw new ProductExceptions("Produto já cadastrado");
+            }
+
+            var productEntity = new ProductEntity
+            {
+                
+                Name = dto.Name,
+                BrandId = dto.BrandId,
+                CategoryId = dto.CategoryId,
+                Description = dto.Description,
+                Price = dto.Price,
+                GenderId = dto.GenderId,
+                IsHighlighted = dto.IsHighLighted
+            };
+
+            var createdProduct = await _productRepository.CreateProductAsync(productEntity);
+
+            return new ProductDto
+            {
+                Id = createdProduct.Id,
+                Name = createdProduct.Name,
+                BrandId = createdProduct.BrandId,
+                CategoryId = createdProduct.CategoryId,
+                Description = createdProduct.Description,
+                Price = createdProduct.Price,
+                GenderId = createdProduct.GenderId,
+                IsHighLighted = createdProduct.IsHighlighted
+            };             
         }
     }
 }

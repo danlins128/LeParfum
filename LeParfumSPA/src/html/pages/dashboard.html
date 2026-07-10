@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/css/output.css">
-    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/LeParfumSPA/src/css/output.css">
+    <link rel="shortcut icon" href="/LeParfumSPA/assets/favicon.png" type="image/x-icon">
     <title>Lê Parfum Dashboard</title>
 </head>
 
@@ -32,13 +32,13 @@
                         </div>
                         <button id="btnNewProduct"
                             class="flex gap-6 items-center bg-[#8c6b4a] p-4 rounded-lg drop-shadow-md text-white font-semibold cursor-pointer hover:bg-amber-800/80 transition-all transform active:scale-85">
-                            <img class="invert ml-2 w-4 h-4" src="/assets/iconsDashboard/mais.svg">
+                            <img class="invert ml-2 w-4 h-4" src="/LeParfumSPA/assets/iconsDashboard/mais.svg">
                             <span>Novo Produto</span>
                         </button>
                     </div>
 
                     <!--área para modais-->
-                    <div id="newProduct"></div>
+                    <div id="modalProduct"></div>
 
                     <div class="p-4 bg-white border border-gray-100 rounded-lg shadow-sm">
                         <form id="filterForm" class="flex flex-wrap items-end gap-3">
@@ -168,12 +168,12 @@
                     <h2 class="text-2xl text-[#2C241E]">Resumo</h2>
                     <div class="grid grid-cols-2 gap-6">
                         <div class="bg-[#F8F6F3] grid grid-rows-3 rounded-lg py-4 px-2 shadow-lg">
-                            <img class="bg-[#faefdf] rounded-xl w-8 h-8 mb-2" src="/assets/iconsDashboard/perfume.png">
+                            <img class="bg-[#faefdf] rounded-xl w-8 h-8 mb-2" src="/LeParfumSPA/assets/iconsDashboard/perfume.png">
                             <span id="total-produtos" class="pt-2 text-2xl font-semibold text-[#2c241e]">0</span>
                             <p class="pt-4">Total de Produtos</p>
                         </div>
                         <div class="bg-[#F8F6F3] grid grid-rows-3 rounded-lg py-4 px-2 shadow-lg">
-                            <img class="bg-[#faefdf] rounded-xl w-8 h-8 mb-2" src="/assets/iconsDashboard/estrela.svg">
+                            <img class="bg-[#faefdf] rounded-xl w-8 h-8 mb-2" src="/LeParfumSPA/assets/iconsDashboard/estrela.svg">
                             <p id="produtos-destaque" class="pt-2 text-2xl font-semibold text-[#2c241e]">0</p>
                             <p class="pt-4">Em destaque</p>
                         </div>
@@ -181,13 +181,13 @@
                     <div class="grid grid-cols-2 grid-rows-2 gap-6">
                         <div class="bg-[#F8F6F3] grid grid-rows-3 rounded-lg py-4 px-2 shadow-lg">
                             <img class="bg-[#faefdf] rounded-xl w-8 h-8 mb-2"
-                                src="/assets/iconsDashboard/file-and-folder.png">
+                                src="/LeParfumSPA/assets/iconsDashboard/file-and-folder.png">
                             <p id="total-categorias" class="pt-2 text-2xl font-semibold text-[#2c241e]">0</p>
                             <p class="pt-4">Categorias</p>
                         </div>
                         <div class="bg-[#F8F6F3] grid grid-rows-3 rounded-lg py-4 px-2 shadow-lg">
                             <img class="bg-[#faefdf] rounded-xl w-8 h-8 mb-2"
-                                src="/assets/iconsDashboard/bolsa-de-compras.svg">
+                                src="/LeParfumSPA/assets/iconsDashboard/bolsa-de-compras.svg">
                             <p id="total-marcas" class="pt-2 text-2xl font-semibold text-[#2c241e]">0</p>
                             <p class="pt-4">Marcas</p>
                         </div>
@@ -203,7 +203,7 @@
             </main>
         </section>
     </div>
-    <script type="module" src="/src/js/dashboard.js"></script>
+    <script type="module" src="/LeParfumSPA/src/js/dashboard.js"></script>
 </body>
 
 </html>

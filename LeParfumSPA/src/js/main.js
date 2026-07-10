@@ -8,10 +8,10 @@ import {
 } from "./ui/ui.js";
 
 
-injetarHTML('/src/html/components/navbar.html', 'navbar-placeholder', function () {
+injetarHTML('/LeParfumSPA/src/html/components/navbar.html', 'navbar-placeholder', function () {
     configurarMenuMobile();
 })
-injetarCards('/src/html/components/card.html', 'carrossel-cards', 9, function () {
+injetarCards('/LeParfumSPA/src/html/components/card.html', 'carrossel-cards', 9, function () {
     configurarScrollHorizontal();
     configurarBotoesSetas();
 })

@@ -8,7 +8,7 @@ namespace LeParfum.Application.Interfaces
         public Task<ProductDto> CreateProductAsync(CreateProductDto dto);
         public Task<ProductEntity> GetProductByIdAsync(Guid productId);
         public Task<IEnumerable<ProductEntity>> GetAllProductsAsync();
-        public Task<ProductEntity> UpdateProductAsync(ProductEntity product);
+        public Task<ProductDto> UpdateProductAsync(CreateProductDto dto);
         public Task<bool> DeleteProductAsync(Guid productId);
     }
 }
