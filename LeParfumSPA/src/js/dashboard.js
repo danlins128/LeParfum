@@ -87,9 +87,7 @@ if (bodyTable) {
         if (editBtn) {
             // Abrir modal de editar produto
             const productId = editBtn.getAttribute('data-id');
-            const productObj = productsGlobal.find(p => String(p.id) === String(productId));
-
-            console.log(productObj);
+            const productObj = productsGlobal.find(p => String(p.id) === String(productId));            
 
             await injetarHTML('/LeParfumSPA/src/html/dashboard/editProduct.html', 'modalProduct', () => {
                 const modal = document.getElementById('modalEditProduct');

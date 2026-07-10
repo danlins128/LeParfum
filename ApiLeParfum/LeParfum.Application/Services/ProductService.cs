@@ -15,10 +15,10 @@ namespace LeParfum.Application.Services
         }
         public async Task<ProductDto> CreateProductAsync(CreateProductDto dto)
         {
-           
+
             var productList = await _productRepository.GetAllProductsAsync();
-            var productExists =  productList.Any(p => p.Name.Equals(dto.Name, StringComparison.OrdinalIgnoreCase));
-            
+            var productExists = productList.Any(p => p.Name.Equals(dto.Name, StringComparison.OrdinalIgnoreCase));
+
             if (productExists)
             {
                 throw new ProductExceptions("Produto já cadastrado");
@@ -26,7 +26,7 @@ namespace LeParfum.Application.Services
 
             var productEntity = new ProductEntity
             {
-                
+
                 Name = dto.Name,
                 BrandId = dto.BrandId,
                 CategoryId = dto.CategoryId,
@@ -48,13 +48,13 @@ namespace LeParfum.Application.Services
                 Price = createdProduct.Price,
                 GenderId = createdProduct.GenderId,
                 IsHighLighted = createdProduct.IsHighlighted
-            };             
+            };
         }
 
         public async Task<bool> DeleteProductAsync(Guid productId)
         {
             var product = await _productRepository.GetProductByIdAsync(productId);
-            if(product == null) return false;
+            if (product == null) return false;
 
             await _productRepository.DeleteProductAsync(product);
 
@@ -66,46 +66,36 @@ namespace LeParfum.Application.Services
             return await _productRepository.GetAllProductsAsync();
         }
 
-        public async Task<ProductEntity> GetProductByIdAsync(Guid productId)
+        public async Task<ProductEntity?> GetProductByIdAsync(Guid productId)
         {
             return await _productRepository.GetProductByIdAsync(productId);
         }
 
-        public async Task<ProductDto> UpdateProductAsync(CreateProductDto dto)
+        public async Task<ProductDto> UpdateProductAsync(Guid id, CreateProductDto dto)
         {
-            var productList = await _productRepository.GetAllProductsAsync();
-            var productExists =  productList.Any(p => p.Name.Equals(dto.Name, StringComparison.OrdinalIgnoreCase));
-            
-            if (productExists)
-            {
-                throw new ProductExceptions("Produto já cadastrado");
-            }
+            var product = await _productRepository.GetProductByIdAsync(id);
 
-            var productEntity = new ProductEntity
-            {
-                
-                Name = dto.Name,
-                BrandId = dto.BrandId,
-                CategoryId = dto.CategoryId,
-                Description = dto.Description,
-                Price = dto.Price,
-                GenderId = dto.GenderId,
-                IsHighlighted = dto.IsHighLighted
-            };
+            product.Name = dto.Name;
+            product.BrandId = dto.BrandId;
+            product.CategoryId = dto.CategoryId;
+            product.Description = dto.Description;
+            product.Price = dto.Price;
+            product.GenderId = dto.GenderId;
+            product.IsHighlighted = dto.IsHighLighted;          
 
-            var createdProduct = await _productRepository.CreateProductAsync(productEntity);
+            await _productRepository.UpdateProductAsync(product);
 
             return new ProductDto
             {
-                Id = createdProduct.Id,
-                Name = createdProduct.Name,
-                BrandId = createdProduct.BrandId,
-                CategoryId = createdProduct.CategoryId,
-                Description = createdProduct.Description,
-                Price = createdProduct.Price,
-                GenderId = createdProduct.GenderId,
-                IsHighLighted = createdProduct.IsHighlighted
-            };             
+                Id = product.Id,
+                Name = product.Name,
+                BrandId = product.BrandId,
+                CategoryId = product.CategoryId,
+                Description = product.Description,
+                Price = product.Price,
+                GenderId = product.GenderId,
+                IsHighLighted = product.IsHighlighted
+            };
         }
     }
 }

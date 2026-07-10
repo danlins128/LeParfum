@@ -14,7 +14,7 @@ namespace LeParfum.Domain.Entities
         public decimal Price { get; set; }
         public Guid GenderId { get; set; }
         public GenderEntity Gender { get; set; } = null!;
-        public bool IsHighlighted { get; set; } = false;
+        public bool IsHighlighted { get; set; }
         public ProductStatus Status { get; set; }
     }
 }

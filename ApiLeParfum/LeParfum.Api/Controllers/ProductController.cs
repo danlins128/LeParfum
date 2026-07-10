@@ -38,10 +38,27 @@ namespace LeParfum.Api.Controllers
                 CategoryName = p.Category.Name,
                 GenderId = p.GenderId,
                 GenderName = p.Gender.Name,
-                IsHighLighted = p.IsHighlighted = false
+                IsHighLighted = p.IsHighlighted
             });
 
             return Ok(productResponseDto);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetProductById(Guid id)
+        {
+            
+            try
+            {
+                var product = await _productService.GetProductByIdAsync(id);
+
+                return Ok(product);
+
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+                
+            }
         }  
 
         [HttpDelete("{id}")]
@@ -54,6 +71,21 @@ namespace LeParfum.Api.Controllers
                 return NotFound(new {message = "Produto não encontrado"});
             }
             return NoContent(); 
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateProduct(Guid id, CreateProductDto dto)
+        {
+            try
+            {
+                var productUpdated = await _productService.UpdateProductAsync(id, dto);
+
+                return Ok(productUpdated);
+
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);                
+            }
         }
         
     }

@@ -81,7 +81,7 @@ namespace LeParfum.Api.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> UpdateAsync(Guid id,BrandDto brandDto)
+        public async Task<IActionResult> UpdateAsync(Guid id, BrandDto brandDto)
         {
             try
             {
