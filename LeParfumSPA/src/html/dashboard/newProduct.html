@@ -11,7 +11,7 @@
                         do Item]</div>
 
                     <div class="flex flex-col justify-between ">
-                        <label for="">Preço R$ </label>
+                        <label for="price">Preço R$ </label>
                         <input type="number" name="preco" id="price" step="00.01" min="0" placeholder="00.00" required
                             class="border border-[#8c6b4a]/50 rounded-md focus:outline-none py-2 px-4 w-80 shadow-md">
                     </div>
@@ -19,21 +19,21 @@
 
                 <div id="lado-direito" class="space-y-4">
                     <div class=" flex flex-col">
-                        <label for="" class="text-xl">Nome do Produto</label>
+                        <label for="productName" class="text-xl">Nome do Produto</label>
                         <input type="text" name="nome-do-produto" id="productName"
                             placeholder="Digite o nome do produto" required
                             class="border border-[#8c6b4a]/50 rounded-md transition-colors focus:outline-none focus:ring-1 focus:ring-[#5B4031] focus:border-[#5B4031]/50 py-2 px-4 shadow-md">
                     </div>
                     <div class="space-y-4">
                         <div class="flex flex-col">
-                            <label for="" class="text-xl">Marca</label>
+                            <label for="select-brand" class="text-xl">Marca</label>
                             <select name="marca" id="select-brand"
                                 class="border border-[#8c6b4a]/50 rounded-md focus:outline-none py-2 px-4 w-64 shadow-md">
                                 <option value="" selected>Escolha uma Marca</option>
                             </select>
                         </div>
                         <div class="flex flex-col">
-                            <label for="" class="text-xl">Categoria</label>
+                            <label for="select-category" class="text-xl">Categoria</label>
                             <select name="categoria" id="select-category"
                                 class="border border-[#8c6b4a]/50 rounded-md focus:outline-none py-2 px-4 w-64 shadow-md">
                                 <option value="" selected>Escolha uma Categoria</option>
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col">
-                        <label for="" class="text-xl">Gênero</label>
+                        <label for="select-gender" class="text-xl">Gênero</label>
                         <select name="genero" id="select-gender"
                             class="border border-[#8c6b4a]/50 rounded-md focus:outline-none py-2 px-4 w-64 shadow-md">
                             <option value="" selected>Escolha um Gênero</option>
@@ -55,7 +55,7 @@
 
             <div class="flex flex-col
             gap-1 mt-4">
-                <label for="">Descrição</label>
+                <label for="description">Descrição</label>
                 <textarea
                     class="border border-[#8c6b4a] rounded-md p-2 w-full resize-y shadow-lg focus:outline-none focus:ring-1 focus:ring-[#5B4031] focus:border-[#5B4031]/50"
                     rows="4" name="descricao" id="description"
@@ -63,7 +63,7 @@
             </div>
             <div class="flex justify-between">
                 <h2 class="pb-2 flex flex-col gap-4">Em destaque
-                    <label class="relative inline-flex justify-items-start items-center cursor-pointer select-none">
+                    <label for="isHighLighted" class="relative inline-flex justify-items-start items-center cursor-pointer select-none">
                     <input id="isHighLighted" type="checkbox" class="sr-only peer">
                     <div
                         class="w-14 h-8 bg-gray-300 rounded-full transition-colors duration-300 peer-checked:bg-amber-800/80">
